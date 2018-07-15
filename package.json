@@ -1,0 +1,24 @@
+{
+  "name": "protractor-jasmine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "spec.js",
+  "dependencies": {
+    "protractor": "^5.1.0"
+  },
+  "scripts": {
+    "prestart-webdriver": "webdriver-manager update",
+    "start-webdriver": "webdriver-manager start",
+    "protractor": "protractor conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SergePletnev/protractor-jasmine.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SergePletnev/protractor-jasmine/issues"
+  },
+  "homepage": "https://github.com/SergePletnev/protractor-jasmine#readme"
+}
