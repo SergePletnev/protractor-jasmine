@@ -1,20 +1,29 @@
-'use strict'
+'use strict';
 
 exports.config = {
     framework: 'jasmine',
     seleniumAddress: 'http://localhost:4444/wd/hub',
     specs: ['spec.js'],
-    multiCapabilities:[{
-      browserName: 'firefox'
-    },{
-      browserName: 'chrome'
-    }],
-  
-    onPrepare: function () {
-      browser.driver.manage().window().maximize();
+    multiCapabilities: [
+    // {
+    //   browserName: 'firefox'
+    // },
+        {
+            browserName: 'chrome'
+        }],
+
+    // capabilities: {
+    //   'browserName': 'chrome',
+    //   'chromeOptions': {
+    //     'args': ['disable-infobars']
+    //   }
+    // },
+
+    onPrepare: () => {
+        browser.driver.manage().window().maximize();
     },
-  
+
     jasmineNodeOpts: {
-      showColors: true
+        showColors: true
     }
-  }
+};

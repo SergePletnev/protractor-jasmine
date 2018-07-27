@@ -1,15 +1,13 @@
 {
   "name": "protractor-jasmine",
   "version": "1.0.0",
-  "description": "",
+  "description": "protractor-jasmine project: testing https://www.flytap.com",
   "main": "spec.js",
-  "dependencies": {
-    "protractor": "^5.1.0"
-  },
   "scripts": {
     "prestart-webdriver": "webdriver-manager update",
     "start-webdriver": "webdriver-manager start",
-    "protractor": "protractor conf.js"
+    "protractor": "protractor conf.js",
+    "eslint": "./node_modules/.bin/eslint **/*.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/SergePletnev/protractor-jasmine/issues"
   },
-  "homepage": "https://github.com/SergePletnev/protractor-jasmine#readme"
+  "homepage": "https://github.com/SergePletnev/protractor-jasmine#readme",
+  "dependencies": {
+    "ajv": "^6.5.2",
+    "protractor": "^5.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.2.0"
+  }
 }
