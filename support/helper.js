@@ -6,7 +6,7 @@ class Helper {
         return element.click();
     }
 
-    write(element, value) {
+    writeTo(element, value) {
         return element.sendKeys(value);
     }
 
@@ -20,11 +20,11 @@ class Helper {
         return element.clear();
     }
 
-    getText(element) {
+    getTextOf(element) {
         return element.getText();
     }
 
-    getAttributeValue(element, attribute) {
+    getAttributeValueOf(element, attribute) {
         return element.getAttribute(attribute);
     }
 }

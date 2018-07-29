@@ -1,5 +1,6 @@
 'use strict';
 
+const Helper = require('./../../support/helper.js');
 const path = require('path');
 
 exports.config = {
@@ -15,7 +16,15 @@ exports.config = {
     },
 
     onPrepare: () => {
+        browser.driver.manage().timeouts().implicitlyWait(25 * 1000);
+        browser.waitForAngularEnabled(true);
         browser.driver.manage().window().maximize();
+
+        const chai = require('chai');
+        chai.use(require('chai-as-promised'));
+        global.expect = chai.expect;
+
+        global.helper = new Helper();
     },
 
     jasmineNodeOpts: {
