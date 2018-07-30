@@ -36,11 +36,11 @@ describe('portal functionality', () => {
     });
 
     it('should be possible to search flights by required locations and dates', async () => {
-        const flightsPage = await homePage.searchFlights('(MAD) Madrid, Spain', '(LIS) Lisbon, Portugal', '06/08/2018', '14/08/2018');
-        expect(flightsPage.getSearchSummary()).to.eventually.contains('Madrid')
-            .and.to.contains('6 Aug')
-            .and.to.contains('14 Aug')
-            .and.to.contains('Lisbon');
+        const flightsPage = await homePage.searchFlights('(LIS) Lisbon, Portugal', '(AGP) Malaga, Spain', '10/08/2018', '18/08/2018');
+        expect(flightsPage.getSearchSummary()).to.eventually.contains('Lisbon')
+            .and.to.contains('10 Aug')
+            .and.to.contains('18 Aug')
+            .and.to.contains('Malaga');
     });
 
     it('should be possible to get flights information for required airport', async () => {

@@ -8,12 +8,11 @@ class FlightsPage extends BasePage {
     constructor() {
         super();
         this.searchSummary = element(by.css('.js-search-summary'));
-        // this.outboundInfo = element(by.css('#avaday-outbound-result .headerbox'));
-        // this.inboundInfo = element(by.css('#avaday-inbound-result .headerbox'));
     }
 
     getSearchSummary() {
-        return helper.getTextOf(this.searchSummary);
+        return helper.waitForVisibilityOf(this.searchSummary, 7000)
+            .then(() => helper.getTextOf(this.searchSummary));
     }
 
     getReturnInfo() {
