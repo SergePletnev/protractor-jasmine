@@ -1,21 +1,20 @@
 'use strict';
 
+/* global helper */
+
 class FlightsInfoForm {
     constructor() {
         this.flightsInfoLink = element(by.id('anchor-flight-status'));
-
+        this.departureAirportInput = element(by.id('departureAirport'));
+        this.searchButton = element(by.css('.js-flightInfoContinueButton'));
     }
 
-    // searchCarsForRent(location, dateRentFrom) {
-    //     return this.flightsInfoLink.click()
-    //         .then(() => this.locationInput.clear())
-    //         .then(() => this.locationInput.sendKeys(location))
-    //         .then(() => this.locationInput.sendKeys(protractor.Key.ENTER))
-    //         .then(() => this.datesFromRentLink.get(dateRentFrom - 1).click())
-    //         .then(() => {
-    //             browser.ignoreSynchronization = true;
-    //         });
-    // }
+    getFlightsInfo(departureAirport) {
+        return helper.clickElement(this.flightsInfoLink)
+            .then(() => helper.setElementClear(this.departureAirportInput))
+            .then(() => helper.writeTo(this.departureAirportInput, departureAirport))
+            .then(() => helper.clickElement(this.searchButton));
+    }
 
 }
 

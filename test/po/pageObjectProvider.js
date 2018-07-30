@@ -4,7 +4,7 @@ const PAGE_OBJECTS = {
     home: './homePage',
     flights: './flightsPage',
     flightsInfo: './flightsInfoPage',
-    feedbackPage: './feedbackPage'
+    destinationExplore: './destinationExplorePage'
 };
 
 module.exports.getPageObject = (pageName) => {
