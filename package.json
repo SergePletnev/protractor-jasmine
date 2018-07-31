@@ -9,8 +9,7 @@
     "start-webdriver": "webdriver-manager start",
     "protractor": "protractor ./test/config/conf.js",
     "gulp": "node ./node_modules/gulp/bin/gulp",
-    "eslint": "./node_modules/.bin/eslint **/*.js",
-    "generate-report": "node ./support/reporter.js"
+    "eslint": "./node_modules/.bin/eslint **/*.js"
   },
   "repository": {
     "type": "git",
