@@ -8,6 +8,7 @@
 
 *.log
 *.html
+*.png
 
 ### Node.s ###
 node_modules/
