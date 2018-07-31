@@ -16,7 +16,7 @@ gulp.task('eslint', () => {
         ]));
 });
 
-gulp.task('start-webdriver', (done) => {
+gulp.task('start-webdriver', () => {
     logger.info('Starting webdriver');
     gulp.src('*.js', { read: false })
         .pipe(shell([
