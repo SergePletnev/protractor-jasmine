@@ -1,8 +1,12 @@
-var gulp = require('gulp');
-var protractor = require("gulp-protractor").protractor;
+'use strict';
+
+const gulp = require('gulp');
+const protractor = require("gulp-protractor").protractor;
 const shell = require('gulp-shell');
+const logger = require('./../../support/logger').logger;
 
 gulp.task('eslint', () => {
+    logger.info('Checking code by eslinter');
     return gulp.src('*.js', { read: false })
         .pipe(shell([
             'eslint ./ --fix'
@@ -10,6 +14,7 @@ gulp.task('eslint', () => {
 });
 
 gulp.task('start-webdriver', (done) => {
+    logger.info('Starting webdriver');
     gulp.src('*.js', { read: false })
         .pipe(shell([
             'start cmd /k "node_modules\\.bin\\webdriver-manager start"'
@@ -20,6 +25,7 @@ gulp.task('start-webdriver', (done) => {
 });
 
 gulp.task('tests', () => {
+    logger.info('Running tests');
     return gulp.src('./test/spec/*.js')
         .pipe(protractor({
             configFile: "./test/config/conf.js"
@@ -30,6 +36,7 @@ gulp.task('tests', () => {
 });
 
 gulp.task('show-report', () => {
+    logger.info('Showing tests report');
     return gulp.src('*.js', { read: false })
         .pipe(shell([
             '.\\reports\\my-report.html'

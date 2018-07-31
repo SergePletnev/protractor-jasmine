@@ -10,12 +10,12 @@ class Helper {
     }
 
     writeTo(element, value) {
-        logger.info(`Write to element with locator: ${element.locator().value}`);
+        logger.info(`Write [${value}] to element with locator: ${element.locator().value}`);
         return element.sendKeys(value);
     }
 
     waitForVisibilityOf(element, timeout) {
-        logger.info(`Wait for visibility of element with locator: ${element.locator().value}`);
+        logger.info(`Wait [${timeout}ms] for visibility of element with locator: ${element.locator().value}`);
         const timeoutMs = timeout || browser.params.defaultTimeOut;
         return browser.wait(protractor.ExpectedConditions.visibilityOf(element), timeoutMs,
             `Waiting for visibilityOf of ${element.locator()} failed`);
