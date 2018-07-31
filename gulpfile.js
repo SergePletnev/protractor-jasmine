@@ -1,12 +1,14 @@
 'use strict';
 
+const logger = require('./support/logger').logger;
+
 const gulp = require('gulp');
 const protractor = require("gulp-protractor").protractor;
+const runSequence = require('run-sequence').use(gulp);
 const shell = require('gulp-shell');
-const logger = require('./../../support/logger').logger;
 
 gulp.task('eslint', () => {
-    logger.info('Checking code by eslinter');
+    logger.info('Checking and fixing code by eslinter');
     return gulp.src('*.js', { read: false })
         .pipe(shell([
             'eslint ./ --fix'
@@ -17,30 +19,33 @@ gulp.task('start-webdriver', (done) => {
     logger.info('Starting webdriver');
     gulp.src('*.js', { read: false })
         .pipe(shell([
-            'start cmd /k "node_modules\\.bin\\webdriver-manager start"'
+            'npm run start-webdriver'
         ]));
     setTimeout(() => {
         done();
     }, 7000);
 });
 
-gulp.task('tests', () => {
+gulp.task('run-test', () => {
     logger.info('Running tests');
-    return gulp.src('./test/spec/*.js')
+    return gulp.src('./test/features/*.feature')
         .pipe(protractor({
             configFile: "./test/config/conf.js"
         }))
         .on('error', (er) => {
-            throw er;
+            logger.error('Error, Tests Failed!', er);
+            runSequence('generate-report');
         });
 });
 
-gulp.task('show-report', () => {
-    logger.info('Showing tests report');
+gulp.task('generate-report', () => {
+    logger.info('Generating tests report');
     return gulp.src('*.js', { read: false })
         .pipe(shell([
             '.\\reports\\my-report.html'
         ]));
 });
 
-gulp.task('default', gulp.series('eslint', 'start-webdriver', 'tests', 'show-report'));
+gulp.task('default', () => {
+    runSequence('start-webdriver', 'run-test', 'generate-report');
+});
