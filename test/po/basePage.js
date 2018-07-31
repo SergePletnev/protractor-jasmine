@@ -6,7 +6,6 @@ const logger = require('./../../support/logger').logger;
 const Header = require('./common/header.js');
 
 class BasePage {
-
     constructor() {
         this.header = new Header();
         this.portugueseLanguageLink = element(by.id('pt-pt'));

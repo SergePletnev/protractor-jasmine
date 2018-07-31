@@ -5,8 +5,8 @@
 const BasePage = require('./basePage');
 const FlightsInfoForm = require('./forms/flightsInfoForm');
 const FlightsSearchForm = require('./forms/flightsSearchForm');
-const logger = require('./../../support/logger').logger;
 
+const logger = require('./../../support/logger').logger;
 const provider = require('./pageObjectProvider');
 
 class HomePage extends BasePage {

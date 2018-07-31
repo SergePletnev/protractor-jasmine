@@ -10,11 +10,6 @@ const logger = winston.createLogger({
                 let currentMoment = new Date(Date.now());
                 return currentMoment.toLocaleString('ru', { timeZone: 'Europe/Minsk' });
             }
-        }),
-        new (winston.transports.File)({
-            name: 'info-log',
-            filename: path.resolve('./logs/info.log'),
-            level: 'info'
         })
     ]
 });

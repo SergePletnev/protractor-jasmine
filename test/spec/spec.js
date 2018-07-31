@@ -34,76 +34,76 @@ describe('home page content', () => {
     });
 });
 
-// describe('portal functionality', () => {
-//     const homePage = new HomePage();
+describe('portal functionality', () => {
+    const homePage = new HomePage();
 
-//     beforeEach(() => {
-//         logger.info('[beforeEach] of describe "portal functionality" Opening home page');
-//         return homePage.open();
-//     });
+    beforeEach(() => {
+        logger.info('[beforeEach] of describe "portal functionality" Opening home page');
+        return homePage.open();
+    });
 
-//     // "Unable to identifyyour browsdr" when sync is disabled on non-angular page
-//     // it('should be possible to search flights by required locations and dates', async () => {
-//     //     logger.info('[it] should be possible to search flights by required locations and dates');
-//     //     const flightsPage = await homePage.searchFlights('(LIS) Lisbon, Portugal', '(AGP) Malaga, Spain', '10/08/2018', '18/08/2018');
-//     //     expect(flightsPage.getSearchSummary()).to.eventually.contains('Lisbon')
-//     //         .and.to.contains('10 Aug')
-//     //         .and.to.contains('18 Aug')
-//     //         .and.to.contains('Malaga');
-//     // });
+    // "Unable to identifyyour browsdr" when sync is disabled on non-angular page
+    // it('should be possible to search flights by required locations and dates', async () => {
+    //     logger.info('[it] should be possible to search flights by required locations and dates');
+    //     const flightsPage = await homePage.searchFlights('(LIS) Lisbon, Portugal', '(AGP) Malaga, Spain', '10/08/2018', '18/08/2018');
+    //     expect(flightsPage.getSearchSummary()).to.eventually.contains('Lisbon')
+    //         .and.to.contains('10 Aug')
+    //         .and.to.contains('18 Aug')
+    //         .and.to.contains('Malaga');
+    // });
 
-//     it('should be possible to get flights information for required airport', async () => {
-//         logger.info('[it] should be possible to get flights information for required airport');
-//         const flightsInfoPage = await homePage.getFlightsInfo('(BCN) Barcelona, Spain');
-//         expect(flightsInfoPage.getResultTitle()).to.eventually.equal('Search Results: Departure from (BCN) Barcelona, Spain');
-//     });
+    it('should be possible to get flights information for required airport', async () => {
+        logger.info('[it] should be possible to get flights information for required airport');
+        const flightsInfoPage = await homePage.getFlightsInfo('(BCN) Barcelona, Spain');
+        expect(flightsInfoPage.getResultTitle()).to.eventually.equal('Search Results: Departure from (BCN) Barcelona, Spain');
+    });
 
-//     it('should be possible to explore destinations', async () => {
-//         logger.info('[it] should be possible to explore destinations');
-//         const destination = await homePage.exploreDisplayedDestination();
-//         expect(destination.page.getDestination()).to.eventually.equal(destination.city);
-//     });
+    it('should be possible to explore destinations', async () => {
+        logger.info('[it] should be possible to explore destinations');
+        const destination = await homePage.exploreDisplayedDestination();
+        expect(destination.page.getDestination()).to.eventually.equal(destination.city);
+    });
 
-//     it('should be possible to organize round the world trip', async () => {
-//         logger.info('[it] should be possible to organize round the world trip');
-//         const bookOptionsPage = await homePage.navigateToBookOptions();
-//         const tripRoundTheWorldPage = await bookOptionsPage.navigateToRoundTheWorld();
-//         expect(tripRoundTheWorldPage.getPageTitle()).to.eventually.contains('Trip around the world');
-//     });
-// });
+    it('should be possible to organize round the world trip', async () => {
+        logger.info('[it] should be possible to organize round the world trip');
+        const bookOptionsPage = await homePage.navigateToBookOptions();
+        const tripRoundTheWorldPage = await bookOptionsPage.navigateToRoundTheWorld();
+        expect(tripRoundTheWorldPage.getPageTitle()).to.eventually.contains('Trip around the world');
+    });
+});
 
-// describe('additional flytap airline services', () => {
-//     let homePage;
+describe('additional flytap airline services', () => {
+    let homePage;
 
-//     beforeAll(() => {
-//         logger.info('[beforeAll] of describe "additional flytap airline services" Opening home page');
-//         homePage = new HomePage();
-//         return homePage.open();
-//     });
+    beforeAll(() => {
+        logger.info('[beforeAll] of describe "additional flytap airline services" Opening home page');
+        homePage = new HomePage();
+        return homePage.open();
+    });
 
-//     it('should be possible to rent a car', async () => {
-//         logger.info('[it] should be possible to rent a car');
-//         const carRentPage = await homePage.navigateToCarRent();
-//         expect(carRentPage.getPageTitle()).to.eventually.equal('TAP | Car rental');
-//     });
+    it('should be possible to rent a car', async () => {
+        logger.info('[it] should be possible to rent a car');
+        const carRentPage = await homePage.navigateToCarRent();
+        expect(carRentPage.getPageTitle()).to.eventually.equal('TAP | Car rental');
+    });
 
-//     it('should be possible to book a hotel', async () => {
-//         logger.info('[it] should be possible to book a hotel');
-//         const hotelsBookingPage = await homePage.navigateToHotelsBooking();
-//         expect(hotelsBookingPage.getPageTitle()).to.eventually.contains('hotels');
-//     });
+    it('should be possible to book a hotel', async () => {
+        logger.info('[it] should be possible to book a hotel');
+        const hotelsBookingPage = await homePage.navigateToHotelsBooking();
+        expect(hotelsBookingPage.getPageTitle()).to.eventually.contains('hotels');
+    });
 
-//     it('should be possible to search for the airport transfer', async () => {
-//         logger.info('[it] should be possible to search for the airport transfer');
-//         const carRentPage = await homePage.navigateToTransfers();
-//         expect(carRentPage.getPageTitle()).to.eventually.contains('transfers');
-//     });
+    it('should be possible to search for the airport transfer', async () => {
+        logger.info('[it] should be possible to search for the airport transfer');
+        const carRentPage = await homePage.navigateToTransfers();
+        expect(carRentPage.getPageTitle()).to.eventually.contains('transfers');
+    });
 
-//     afterEach(() => {
-//         logger.info('[afterEach] of describe "additional flytap airline services" Closing opened tab');
-//         browser.driver.close();
-//         browser.ignoreSynchronization = false;
-//         browser.getAllWindowHandles()
-//             .then((handles) => browser.switchTo().window(handles[0]));
-//     });
-// });
+    afterEach(() => {
+        logger.info('[afterEach] of describe "additional flytap airline services" Closing opened tab');
+        browser.driver.close();
+        browser.ignoreSynchronization = false;
+        browser.getAllWindowHandles()
+            .then((handles) => browser.switchTo().window(handles[0]));
+    });
+});
