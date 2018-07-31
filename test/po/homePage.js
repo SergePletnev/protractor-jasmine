@@ -43,7 +43,7 @@ class HomePage extends BasePage {
     }
 
     getOffersTitle() {
-        return this.helper.getTextOf(this.offersTitle);
+        return helper.getTextOf(this.offersTitle);
     }
 
     getJourneyTypesCount() {

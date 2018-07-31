@@ -2,11 +2,8 @@ const winston = require('winston');
 
 const path = require('path');
 
-let logger = new (winston.Logger)({
+const logger = winston.createLogger({
     transports: [
-        // new (winston.transports.Console)({
-        //     colorize: true
-        // }),
         new (winston.transports.File)({
             filename: path.resolve('./logs/combined.log'),
             timestamp: () => {
@@ -15,9 +12,9 @@ let logger = new (winston.Logger)({
             }
         }),
         new (winston.transports.File)({
-            name: 'error-log',
-            filename: path.resolve('./logs/error.log'),
-            level: 'error'
+            name: 'info-log',
+            filename: path.resolve('./logs/info.log'),
+            level: 'info'
         })
     ]
 });
