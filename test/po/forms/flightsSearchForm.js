@@ -4,20 +4,20 @@
 
 class FlightsSearchForm {
     constructor() {
-        this.departureLocationInput = element(by.id('origin'));
-        this.destinationLocationInput = element(by.id('destination'));
+        this.departureAirportInput = element(by.id('origin'));
+        this.destinationAirportInput = element(by.id('destination'));
         this.departureDateInput = element(by.id('dateDepartureTwoWays'));
         this.returnDateInput = element(by.id('dateReturnTwoWays'));
         this.searchButton = element(by.css('#jsIbeBookingForm .js-ibe-form-sbmt'));
     }
 
-    searchFlights(departureLocation, destinationLocation, departureDate, returnDate) {
-        return helper.setElementClear(this.destinationLocationInput)
-            .then(() => helper.writeTo(this.destinationLocationInput, destinationLocation))
-            .then(() => helper.clickElement(this.destinationLocationInput))
+    searchFlights(departureAirport, destinationAirport, departureDate, returnDate) {
+        return helper.setElementClear(this.destinationAirportInput)
+            .then(() => helper.writeTo(this.destinationAirportInput, destinationAirport))
+            .then(() => helper.clickElement(this.destinationAirportInput))
             .then(() => browser.sleep(2000))
-            .then(() => helper.setElementClear(this.departureLocationInput))
-            .then(() => helper.writeTo(this.departureLocationInput, departureLocation))
+            .then(() => helper.setElementClear(this.departureAirportInput))
+            .then(() => helper.writeTo(this.departureAirportInput, departureAirport))
             .then(() => helper.setElementClear(this.departureDateInput))
             .then(() => helper.writeTo(this.departureDateInput, departureDate))
             .then(() => helper.setElementClear(this.returnDateInput))

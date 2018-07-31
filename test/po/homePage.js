@@ -5,6 +5,7 @@
 const BasePage = require('./basePage');
 const FlightsInfoForm = require('./forms/flightsInfoForm');
 const FlightsSearchForm = require('./forms/flightsSearchForm');
+const logger = require('./../../support/logger').logger;
 
 const provider = require('./pageObjectProvider');
 
@@ -26,14 +27,16 @@ class HomePage extends BasePage {
     }
 
     getFlightsInfo(departureAirport) {
+        logger.info(`Getting flight info for [${departureAirport}]`);
         return this.flightsInfoForm.getFlightsInfo(departureAirport)
             .then(() => {
                 return provider.getPageObject('flightsInfo');
             });
     }
 
-    searchFlights(departureLocation, destinationLocation, departureDate, returnDate) {
-        return this.flightsSearchForm.searchFlights(departureLocation, destinationLocation, departureDate, returnDate)
+    searchFlights(departureAirport, destinationAirport, departureDate, returnDate) {
+        logger.info(`Searching flights for [from ${departureAirport} to ${destinationAirport} dates: to - ${departureDate}, return - ${returnDate}]`);
+        return this.flightsSearchForm.searchFlights(departureAirport, destinationAirport, departureDate, returnDate)
             .then(() => {
                 return provider.getPageObject('flights');
             });
@@ -44,10 +47,12 @@ class HomePage extends BasePage {
     }
 
     getJourneyTypesCount() {
+        logger.info('Getting journey types count');
         return this.journeyTypes.count();
     }
 
     exploreDisplayedDestination() {
+        logger.info('Exploring displayed destination');
         const destinationObj = {};
         return helper.getTextOf(this.citiesExploreLink.get(0))
             .then((city) => {
@@ -61,11 +66,13 @@ class HomePage extends BasePage {
     }
 
     navigateToBookOptions() {
+        logger.info('Navigating to book options page');
         return helper.clickElement(this.bookOptionsLink)
             .then(() => provider.getPageObject('bookOptions'));
     }
 
     navigateToCarRent() {
+        logger.info('Navigating to cars rent page');
         return helper.clickElement(this.carRentLink)
             .then(() => browser.getAllWindowHandles())
             .then((handles) => browser.switchTo().window(handles[1]))
@@ -76,6 +83,7 @@ class HomePage extends BasePage {
     }
 
     navigateToHotelsBooking() {
+        logger.info('Navigating to hotels booking page');
         return helper.clickElement(this.hotelBookingLink)
             .then(() => browser.getAllWindowHandles())
             .then((handles) => browser.switchTo().window(handles[1]))
@@ -86,6 +94,7 @@ class HomePage extends BasePage {
     }
 
     navigateToTransfers() {
+        logger.info('Navigating to transfers page');
         return helper.clickElement(this.transfersLink)
             .then(() => browser.getAllWindowHandles())
             .then((handles) => browser.switchTo().window(handles[1]))

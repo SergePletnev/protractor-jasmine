@@ -2,6 +2,7 @@
 
 /* global helper */
 
+const logger = require('./../../support/logger').logger;
 const Header = require('./common/header.js');
 
 class BasePage {
@@ -12,6 +13,7 @@ class BasePage {
     }
 
     open() {
+        logger.info(`Opening ${this.url} url`);
         browser.get(this.url);
     }
 
@@ -20,6 +22,7 @@ class BasePage {
     }
 
     changeLanguageToPortuguese() {
+        logger.info('Changing language to Portuguese');
         return helper.clickElement(this.header.languageLink)
             .then(() => helper.clickElement(this.portugueseLanguageLink));
     }

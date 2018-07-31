@@ -1,7 +1,9 @@
 'use strict';
 
-const BasePage = require('./basePage');
+/* global helper */
 
+const BasePage = require('./basePage');
+const logger = require('./../../support/logger').logger;
 const provider = require('./pageObjectProvider');
 
 class BookOptionsPage extends BasePage {
@@ -11,7 +13,8 @@ class BookOptionsPage extends BasePage {
     }
 
     navigateToRoundTheWorld() {
-        return this.roundTheWorldButton.click()
+        logger.info('Navigating to round the world page');
+        return helper.clickElement(this.roundTheWorldButton)
             .then(() => provider.getPageObject('tripRoundTheWorld'));
     }
 }
