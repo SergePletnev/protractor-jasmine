@@ -36,4 +36,4 @@ gulp.task('show-report', () => {
         ]));
 });
 
-gulp.task('default', gulp.series(['eslint', 'start-webdriver'], 'tests', 'show-report'));
+gulp.task('default', gulp.series('eslint', 'start-webdriver', 'tests', 'show-report'));
