@@ -42,7 +42,7 @@ describe('portal functionality', () => {
         return homePage.open();
     });
 
-    // "Unable to identifyyour browsdr" when sync is disabled on non-angular page
+    // "Unable to identify your browser" when sync is disabled on non-angular page
     xit('should be possible to search flights by required locations and dates', async () => {
         logger.info('[it] should be possible to search flights by required locations and dates');
         const flightsPage = await homePage.searchFlights('(LIS) Lisbon, Portugal', '(AGP) Malaga, Spain', '10/08/2018', '18/08/2018');
