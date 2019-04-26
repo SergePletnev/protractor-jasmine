@@ -22,13 +22,13 @@ describe('home page content', () => {
         expect(homePage.getOffersTitle()).to.eventually.contains('best offers');
     });
 
-    it('should have 3 journey types when booking flight', () => {
-        logger.info('[it] should have "best offers" on home page');
-        expect(homePage.getJourneyTypesCount()).to.eventually.equal(3);
+    it('should have 4 journey types when booking flight', () => {
+        logger.info('[it] should have 4 journey types when booking flight');
+        expect(homePage.getJourneyTypesCount()).to.eventually.equal(4);
     });
 
     it('should be possible to change language', async () => {
-        logger.info('[it] should have "best offers" on home page');
+        logger.info('[it] should be possible to change language');
         await homePage.changeLanguageToPortuguese();
         expect(homePage.getPageLanguage()).to.eventually.contains('PT');
     });
@@ -42,7 +42,7 @@ describe('portal functionality', () => {
         return homePage.open();
     });
 
-    // "Unable to identifyyour browsdr" when sync is disabled on non-angular page
+    // "Unable to identify your browser" when sync is disabled on non-angular page
     xit('should be possible to search flights by required locations and dates', async () => {
         logger.info('[it] should be possible to search flights by required locations and dates');
         const flightsPage = await homePage.searchFlights('(LIS) Lisbon, Portugal', '(AGP) Malaga, Spain', '10/08/2018', '18/08/2018');
@@ -90,7 +90,7 @@ describe('additional flytap airline services', () => {
     it('should be possible to book a hotel', async () => {
         logger.info('[it] should be possible to book a hotel');
         const hotelsBookingPage = await homePage.navigateToHotelsBooking();
-        expect(hotelsBookingPage.getPageTitle()).to.eventually.contains('hotels');
+        expect(hotelsBookingPage.getPageTitle()).to.eventually.contains('hotel');
     });
 
     it('should be possible to search for the airport transfer', async () => {
